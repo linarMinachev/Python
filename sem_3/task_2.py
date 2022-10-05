@@ -8,21 +8,17 @@ from random import randint
 
 array_size = int(input("Введите сколько чисел должно быть в списке: "))
 numbers = []
+multiplied = []
+
 for i in range(array_size):
     numbers.append(randint(1, 10))
-print("Заданный список рандомных чисел:", numbers)
-lst_multiplied = []
-if len(numbers) % 2 == 0:
-    i = 1
-    while i <= array_size / 2:
-        multiplied = numbers[i - 1] * numbers[-i]
-        lst_multiplied.append(multiplied)
-        i += 1
-    print(lst_multiplied)
+print(f"Созданный список -> {numbers}")
+
+if array_size % 2 == 0:
+    for i in range(int(array_size / 2)):
+        multiplied.append(numbers[i] * numbers[-i - 1])
 else:
-    i = 1
-    while i <= array_size / 2:
-        multiplied = numbers[i - 1] * numbers[-i]
-        lst_multiplied.append(multiplied)
-        i += 1
-    print(lst_multiplied)
+    for i in range(int(array_size / 2 + 1)):
+        multiplied.append(numbers[i] * numbers[-i - 1])
+
+print(f"Произведение пар чисел списка -> {multiplied}")
