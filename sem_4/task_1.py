@@ -4,13 +4,10 @@
 
 # from_user = float(input("Введите число: "))
 
-k = 1
-p = 0
-for k in range(1, 1000000):
-    p = p + 4 * ((-1)**(k + 1)) / (2 * k - 1)
+import math
 
 
-from_user = 100
-pipi = 3.1415936535907742
-a = 3 + (int((p - 3) * from_user) / from_user)
-print(a)
+from_user = str(
+    input("Введите точность числа '兀' (например 0,001): "))
+len_show = len(str(from_user).split('.,')[-1])
+print(f'兀 = {str(math.pi)[:len_show]}')
